@@ -1,0 +1,929 @@
+[
+  {
+    "type": "put",
+    "url": "/api/v1/users/:userId/edit",
+    "title": "Edit user by userId",
+    "version": "0.0.1",
+    "group": "edit",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>The token for authentication.(Send authToken as query parameter, body parameter or as a header)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>userId of the user passed as the URL parameter</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "options",
+            "description": "<p>parameters passed for editing</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n        \"message\": \"User details edited\",\n        \"status\": 200,\n        \"data\": {\n                    \"n\": 1,\n                    \"nModified\": 1,\n                    \"ok\": 1 \n                }\n\t    }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/UserRoutes.js",
+    "groupTitle": "edit",
+    "name": "PutApiV1UsersUseridEdit"
+  },
+  {
+    "group": "meeting",
+    "version": "1.0.0",
+    "type": "get",
+    "url": "/api/v1/meeting/allMeetings/:userId",
+    "title": "api to fetch all meetings by admin",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>Authorization(body param/header/query param) Token of the admin (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>User ID of admin (body param) (required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http stataus code, result</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"error\": false,\n    \"message\": \"all meetings found\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"createdBy\": \"vaibhav tak\"\n            \"createdByEmail\": \"vaibhav.tak@xyz.com\"\n            \"createdById\": \"-zGtGVXTk\"\n            \"createdFor\": \"6wMgfOOf_\"\n            \"createdForEmail\": \"shubham.tak@xyz.com\"\n            \"createdOn\": \"2019-01-10T10:33:47.000Z\"\n            \"end\": Fri Jan 25 2019 16:03:16 GMT+0530 (India Standard Time) {}\n            \"endDate\": \"2019-01-25T10:33:16.000Z\"\n            \"location\": \"ddds\"\n            \"meetingId\": \"FBA5WvMbj\"\n            \"purpose\": \"General Purpose\"  \n            \"remindMe\": true\n            \"start\": Thu Jan 24 2019 16:03:16 GMT+0530 (India Standard Time) {}\n            \"startDate\": \"2019-01-24T10:33:16.000Z\"\n            \"title\": \"meeting_dhingra\"\n        },\n        {\n            \"createdBy\": \"vaibhav tak\"\n            \"createdByEmail\": \"vaibhav.tak@xyz.com\"\n            \"createdById\": \"-zGtGVXTk\"\n            \"createdFor\": \"6wMgfOOf_\"\n            \"createdForEmail\": \"shubham.tak@xyz.com\"\n            \"createdOn\": \"2019-01-15T16:30:47.000Z\"\n            \"end\": Thu Jan 31 2019 22:00:33 GMT+0530 (India Standard Time) {}\n            \"endDate\": \"2019-01-31T16:30:33.000Z\"\n            \"meetingId\": \"MbXDVAxrT\"\n            \"remindMe\": true\n            \"start\": Thu Jan 31 2019 22:00:33 GMT+0530 (India Standard Time) {}\n            \"startDate\": \"2019-01-31T16:30:33.000Z\"0\n            \"title\": \"s\"\n        }\n    ]\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "routes/MeetingRoutes.js",
+    "groupTitle": "meeting",
+    "name": "GetApiV1MeetingAllmeetingsUserid"
+  },
+  {
+    "group": "meeting",
+    "version": "1.0.0",
+    "type": "get",
+    "url": "/api/v1/meeting/getMeetingOnClick",
+    "title": "api to get all meetings of a particular user on Click as admin",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>Authorization(body param/header/query param) Token of the admin (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "createdById",
+            "description": "<p>User ID of admin (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "createdForId",
+            "description": "<p>User ID of normal user (body param) (required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http stataus code, result</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"error\": false,\n    \"message\": \"all meetings found\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"createdBy\": \"vaibhav tak\"\n            \"createdByEmail\": \"vaibhav.tak@xyz.com\"\n            \"createdById\": \"-zGtGVXTk\"\n            \"createdFor\": \"3zclPt-r7\"\n            \"createdForEmail\": \"aman.garg@xyz.com\"\n            \"createdOn\": \"2019-01-16T06:30:32.000Z\"\n            \"end\": Thu Jan 24 2019 12:00:15 GMT+0530 (India Standard Time) {}\n            \"endDate\": \"2019-01-24T06:30:15.000Z\"\n            \"location\": \"dd\"\n            \"meetingId\": \"MPJPakIZ-\"\n            \"purpose\": \"Defects Status\"\n            \"remindMe\": true\n            \"start\": Thu Jan 24 2019 12:00:15 GMT+0530 (India Standard Time) {}\n            \"startDate\": \"2019-01-24T06:30:15.000Z\"\n            \"title\": \"dd\"\n        },\n        {\n            \"createdBy\": \"vaibhav tak\"\n            \"createdByEmail\": \"vaibhav.tak@xyz.com\"\n            \"createdById\": \"-zGtGVXTk\"\n            \"createdFor\": \"3zclPt-r7\"\n            \"createdForEmail\": \"aman.garg@xyz.com\"\n            \"createdOn\": \"2019-01-16T09:29:22.000Z\"\n            \"end\": Fri Jan 18 2019 14:59:09 GMT+0530 (India Standard Time) {}\n            \"endDate\": \"2019-01-18T09:29:09.000Z\"\n            \"location\": \"jbjdbj\"\n            \"meetingId\": \"4ufGx-0NL\"\n            \"purpose\": \"Building Relationships\"\n            \"remindMe\": true\n            \"start\": Fri Jan 18 2019 14:59:09 GMT+0530 (India Standard Time) {}\n            \"startDate\": \"2019-01-18T09:29:09.000Z\"\n            \"title\": \"dkbd\"\n        }\n    ]\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "routes/MeetingRoutes.js",
+    "groupTitle": "meeting",
+    "name": "GetApiV1MeetingGetmeetingonclick"
+  },
+  {
+    "group": "meeting",
+    "version": "1.0.0",
+    "type": "get",
+    "url": "/api/v1/meeting/getNormalMeetings/:userId",
+    "title": "api to fetch all meetings of normal user",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>Authorization(body param/header/query param) Token of the normal user (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>User Id of normal user (body param) (required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http stataus code, result</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"error\": false,\n    \"message\": \"all meetings found\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"createdBy\": \"vaibhav tak\"\n            \"createdByEmail\": \"vaibhav.tak@xyz.com\"\n            \"createdById\": \"-zGtGVXTk\"\n            \"createdFor\": \"3zclPt-r7\"\n            \"createdForEmail\": \"aman.garg@xyz.com\"\n            \"createdOn\": \"2019-01-16T06:30:32.000Z\"\n            \"end\": Thu Jan 24 2019 12:00:15 GMT+0530 (India Standard Time) {}\n            \"endDate\": \"2019-01-24T06:30:15.000Z\"\n            \"location\": \"dd\"\n            \"meetingId\": \"MPJPakIZ-\"\n            \"name\": \"vaibhav tak\"\n            \"purpose\": \"Defects Status\"\n            \"remindMe\": true\n            \"start\": Thu Jan 24 2019 12:00:15 GMT+0530 (India Standard Time) {}\n            \"startDate\": \"2019-01-24T06:30:15.000Z\"\n            \"title\": \"dd\"\n        },\n        {\n            \"createdBy\": \"vaibhav tak\"\n            \"createdByEmail\": \"vaibhav.tak@xyz.com\"\n            \"createdById\": \"-zGtGVXTk\"\n            \"createdFor\": \"3zclPt-r7\"\n            \"createdForEmail\": \"aman.garg@xyz.com\"\n            \"createdOn\": \"2019-01-16T09:29:22.000Z\"\n            \"end\": Fri Jan 18 2019 14:59:09 GMT+0530 (India Standard Time) {}\n            \"endDate\": \"2019-01-18T09:29:09.000Z\"\n            \"location\": \"jbjdbj\"\n            \"meetingId\": \"4ufGx-0NL\"\n            \"name\": \"vaibhav tak\"\n            \"purpose\": \"Building Relationships\"\n            \"remindMe\": true\n            \"start\": Fri Jan 18 2019 14:59:09 GMT+0530 (India Standard Time) {}\n            \"startDate\": \"2019-01-18T09:29:09.000Z\"\n            \"title\": \"dkbd\"\n            \"__v\": 0\n            \"_id\": \"5c3ef97275130c1324b677c0\"\n        }\n    ]\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "routes/MeetingRoutes.js",
+    "groupTitle": "meeting",
+    "name": "GetApiV1MeetingGetnormalmeetingsUserid"
+  },
+  {
+    "group": "meeting",
+    "version": "1.0.0",
+    "type": "get",
+    "url": "/api/v1/meeting/getSingleMeeting/:meetingId",
+    "title": "api to get selected meeting",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>Authorization(body param/header/query param) Token of the admin (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingId",
+            "description": "<p>Meeting ID of the meeting (body param) (required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"error\": false,\n    \"message\": \"Meeting Found\",\n    \"status\": 200,\n    \"data\": {\n        \"createdBy\": \"vaibhav tak\"\n        \"createdByEmail\": \"vaibhav.tak@xyz.com\"\n        \"createdById\": \"-zGtGVXTk\"\n        \"createdFor\": \"3zclPt-r7\"\n        \"createdForEmail\": \"aman.garg@xyz.com\"\n        \"createdOn\": \"2019-01-16T18:45:45.000Z\"\n        \"endDate\": \"2019-01-18T05:00:05.000Z\"\n        \"location\": \"Room1\"\n        \"meetingId\": \"jPOLNs4gd\"\n        \"purpose\": \"Making Decisions\"\n        \"startDate\": \"2019-01-18T05:00:05.000Z\"\n        \"title\": \"Meeting1\"\n        \"__v\": 0  \n        \"_id\": \"5c3f7bd9fdf17d172c3d9e47\"\n    }\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "routes/MeetingRoutes.js",
+    "groupTitle": "meeting",
+    "name": "GetApiV1MeetingGetsinglemeetingMeetingid"
+  },
+  {
+    "group": "meeting",
+    "version": "1.0.0",
+    "type": "post",
+    "url": "/api/v1/meeting/createMeeting",
+    "title": "api to add meeting",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "title",
+            "description": "<p>Title of the meeting (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "startDate",
+            "description": "<p>Start Date of Meeting (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "endDate",
+            "description": "<p>End of Meeting (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "createdBy",
+            "description": "<p>Name of the Admin who created meeting (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "createdByEmail",
+            "description": "<p>Email of the Admin who created the meeting (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "createdById",
+            "description": "<p>ID of the Admin who created the meeting (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "createdFor",
+            "description": "<p>ID of the Normal User for whom the meeting was created (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "createdForEmail",
+            "description": "<p>Email of the Normal user for whom the meeting was created (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "location",
+            "description": "<p>Location of the  meeting (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "purpose",
+            "description": "<p>Purpose of the meeting (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>Authorization Token(body param/header/query param) of the admin who created meeting (body param) (required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{ \n     \"error\": false,\n     \"message\": \"meeting created\",\n     \"status\": 200,\n     \"data\": {\n            \"createdBy\": \"vaibhav tak\"\n            \"createdByEmail\": \"vaibhav.tak@xyz.com\"\n            \"createdById\": \"-zGtGVXTk\"\n            \"createdFor\": \"3zclPt-r7\"\n            \"createdForEmail\": \"aman.garg@xyz.com\"\n            \"createdOn\": \"2019-01-16T18:45:45.000Z\"\n            \"endDate\": \"2019-01-18T05:00:05.000Z\" \n            \"location\": \"Room1\"\n            \"meetingId\": \"jPOLNs4gd\"\n            \"purpose\": \"Making Decisions\"\n            \"startDate\": \"2019-01-18T05:00:05.000Z\"\n            \"title\": \"Meeting1\"\n            \"__v\": 0\n            \"_id\": \"5c3f7bd9fdf17d172c3d9e47\"\n \n      } \n}",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "routes/MeetingRoutes.js",
+    "groupTitle": "meeting",
+    "name": "PostApiV1MeetingCreatemeeting"
+  },
+  {
+    "group": "meeting",
+    "version": "1.0.0",
+    "type": "post",
+    "url": "/api/v1/meeting/deleteMeeting/:meetingId",
+    "title": "api to delete meeting by admin",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingId",
+            "description": "<p>Meeting Id of the meeting which is to be deleted</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>Authorization Token of the admin</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"error\": false,\n    \"message\": \"meeting was successfully deleted\",\n    \"status\": 200,\n    \"data\": {\n        \"createdBy\": \"vaibhav tak\"\n        \"createdByEmail\": \"vaibhav.tak@xyz.com\"\n        \"createdById\": \"-zGtGVXTk\"\n        \"createdFor\": \"3zclPt-r7\"\n        \"createdForEmail\": \"aman.garg@xyz.com\"\n        \"createdOn\": \"2019-01-16T13:12:33.000Z\"\n        \"endDate\": \"2019-01-17T16:12:21.000Z\"\n        \"location\": \"room3\"\n        \"meetingId\": \"eat7GOGxv\"\n        \"purpose\": \"Defects Status\"\n        \"startDate\": \"2019-01-17T15:12:21.000Z\"\n        \"title\": \"Meeting1\"\n        \"__v\": 0\n        \"_id\": \"5c3f2dc175130c1324b677c4\"\n    }\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "routes/MeetingRoutes.js",
+    "groupTitle": "meeting",
+    "name": "PostApiV1MeetingDeletemeetingMeetingid"
+  },
+  {
+    "group": "meeting",
+    "version": "1.0.0",
+    "type": "put",
+    "url": "/api/v1/meeting/updateMeeting/:meetingId",
+    "title": "api to update meeting",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "title",
+            "description": "<p>Title of the meeting (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingId",
+            "description": "<p>Meeting ID of the meeting</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>Authorization Token(header/body param/query param) of the creator of the meeting (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "startDate",
+            "description": "<p>Start Date of the Meeting (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "datw",
+            "optional": false,
+            "field": "endDate",
+            "description": "<p>End Date of the Meeting (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "location",
+            "description": "<p>Location of the Meeting (body param) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "purpose",
+            "description": "<p>Purpose of the Meeting (body param) (required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"error\": false,\n    \"message\": \"updated successfully\",\n    \"status\": 200,\n    \"data\": {\n        \"data\": {n: 1, nModified: 1, ok: 1}\n        \"error\": false\n        \"message\": \"updated successfully\"\n        \"status\": 200\n    }\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "routes/MeetingRoutes.js",
+    "groupTitle": "meeting",
+    "name": "PutApiV1MeetingUpdatemeetingMeetingid"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/users/view/:userId",
+    "title": "Get a single user",
+    "version": "0.0.1",
+    "group": "read",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>The token for authentication.(Send authToken as query parameter, body parameter or as a header)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>The userId should be passed as the URL parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n\t    \"message\": \"User Details Found\",\n\t    \"status\": 200,\n\t    \"data\": {\n\t    \t\t\t\"userId\": \"MVJIQYRZK\",\n                    \"firstName\": \"anil\",\n                    \"lastName\": \"rana\",\n                    \"mobileNumber\": 1234567890,\n                    \"isAdmin\": true,\n                    \"createdOn\": \"2019-01-14T18:45:06.000Z\",\n                    \"userName\": \"anil-admin\",\n                    \"email\": \"anil.rana@xyz.com\",\n                    \"countryName\": \"IN\",    \n                    \"countryCode\": 91\n\t\t\t\t}\n\t    \t}\n\t\t}\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"No User Found\",\n\t    \"status\": 404,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/UserRoutes.js",
+    "groupTitle": "read",
+    "name": "GetApiV1UsersViewUserid"
+  },
+  {
+    "group": "users",
+    "version": "1.0.0",
+    "type": "get",
+    "url": "/api/v1/users/view/all",
+    "title": "api to get all users",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>authToken of the user. (query params/body params/header)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n      \"error\": false,\n      \"message\": \"All User Details Found\",\n      \"status\": 200,\n      \"data\": [\n          {\n            \"userId\": \"u-JSLXVEh\",\n            \"firstName\": \"virat\",\n            \"lastName\": \"rohit\",\n            \"mobileNumber\": 1234567890,\n            \"password\": \"$2a$10$I/mOPRhahQxxybdQIDFxLO0yNxLjg6hiVjjhnNRoRO6SwFspas4Ri\",\n            \"isAdmin\": false,\n            \"createdOn\": \"2019-01-15T09:28:19.000Z\",\n            \"userName\": \"sharma\",\n            \"email\": \"rohit.sharma@xyz.com\",\n            \"countryName\": \"IN\",\n            \"countryCode\": 91\n          },\n          {\n            \"userId\": \"MVJIQYRZK\",\n            \"firstName\": \"anil\",\n            \"lastName\": \"rana\",\n            \"mobileNumber\": 1234567890,\n            \"password\": \"$2a$10$zItkcA5uAaO/SiAHe5hkLelizdlvLj/66AoVzx8XfiLRqWdSOvj5y\",\n            \"isAdmin\": true,\n            \"createdOn\": \"2019-01-14T18:45:06.000Z\",\n            \"userName\": \"anil-admin\",\n            \"email\": \"anil.rana@xyz.com\",\n            \"countryName\": \"IN\",\n            \"countryCode\": 91\n          }\n      ]\n  }",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "routes/UserRoutes.js",
+    "groupTitle": "users",
+    "name": "GetApiV1UsersViewAll"
+  },
+  {
+    "group": "users",
+    "version": "1.0.0",
+    "type": "get",
+    "url": "/api/v1/users/view/all",
+    "title": "api to delete a user",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>authToken of the user. (query params/body params/header)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>User Id of the user (body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n      \"error\": false,\n      \"message\": \"Deleted the user successfully\",\n      \"status\": 200,\n      \"data\": [\n          {\n            \"userId\": \"u-JSLXVEh\",\n            \"firstName\": \"virat\",\n            \"lastName\": \"rohit\",    \n            \"mobileNumber\": 1234567890,\n            \"password\": \"$2a$10$I/mOPRhahQxxybdQIDFxLO0yNxLjg6hiVjjhnNRoRO6SwFspas4Ri\",\n            \"isAdmin\": false,\n            \"createdOn\": \"2019-01-15T09:28:19.000Z\",\n            \"_id\": \"5c3da7b3cf9e321178b71f3d\",\n            \"userName\": \"sharma\",\n            \"email\": \"rohit.sharma@xyz.com\",\n            \"countryName\": \"IN\",\n           \"countryCode\": 91,\n            \"__v\": 0\n          }\n      ]\n  }",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "routes/UserRoutes.js",
+    "groupTitle": "users",
+    "name": "GetApiV1UsersViewAll"
+  },
+  {
+    "group": "users",
+    "version": "1.0.0",
+    "type": "post",
+    "url": "/api/v1/users/forgotPassword",
+    "title": "api to send link for resetting the password",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email of the user (body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n      \"error\": false,\n      \"message\": \"email send successfully for password reset\",\n      \"status\": 200,\n      \"data\": {\n          \"error\": false,\n          \"message\": \"Email sent successfully to reset the password\",\n          \"status\": 200,\n          \"data\": \"email sent\"\n      }\n  }",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "routes/UserRoutes.js",
+    "groupTitle": "users",
+    "name": "PostApiV1UsersForgotpassword"
+  },
+  {
+    "group": "users",
+    "version": "1.0.0",
+    "type": "post",
+    "url": "/api/v1/users/login",
+    "title": "api for user login.",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email of the user. (body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>Password of the user. (body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n      \"error\": false,\n      \"message\": \"Login Successful\",\n      \"status\": 200,\n      \"data\": {\n          \"authToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RpZCI6IjFCeENfYm1xcSIsImlhdCI6MTU0NzU0NDgyMDY3OSwiZXhwIjoxNTQ3NjMxMjIwLCJzdWIiOiJhdXRoVG9rZW4iLCJpc3MiOiJlZENoYXQiLCJkYXRhIjp7InVzZXJJZCI6InUtSlNMWFZFaCIsImZpcnN0TmFtZSI6InZpcmF0IiwibGFzdE5hbWUiOiJyb2hpdCIsIm1vYmlsZU51bWJlciI6MTIzNDU2Nzg5MCwiaXNBZG1pbiI6ZmFsc2UsInVzZXJOYW1lIjoic2hhcm1hIiwiZW1haWwiOiJyb2hpdC5zaGFybWFAeHl6LmNvbSIsImNvdW50cnlOYW1lIjoiSU4iLCJjb3VudHJ5Q29kZSI6OTF9fQ.uoxyloDAY7A8KttX-VcQZOGGTYNR1qEGZRWK0dCHxKs\",\n          \"userDetails\": {\n              \"countryCode\": 91\n              \"countryName\": \"IN\"\n              \"email\": \"rohit.sharma@xyz.com\"\n              \"firstName\": \"virat\"\n              \"isAdmin\": false\n              \"lastName\": \"rohit\"\n              \"mobileNumber\": 1234567890\n              \"userId\": \"u-JSLXVEh\"\n              \"userName\": \"sharma\"\n          }\n      }\n  }",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "routes/UserRoutes.js",
+    "groupTitle": "users",
+    "name": "PostApiV1UsersLogin"
+  },
+  {
+    "group": "users",
+    "version": "1.0.0",
+    "type": "post",
+    "url": "/api/v1/users/logout/:userId",
+    "title": "api to log out",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>User ID of the user (body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>Authorization Token of user (body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n      \"error\": false,\n      \"message\": \"Logged Out Successfully\",\n      \"status\": 200,\n      \"data\": null\n  }",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "routes/UserRoutes.js",
+    "groupTitle": "users",
+    "name": "PostApiV1UsersLogoutUserid"
+  },
+  {
+    "group": "users",
+    "version": "1.0.0",
+    "type": "post",
+    "url": "/api/v1/users/resetPassword",
+    "title": "api to reset the password",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>Password of the user (body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "userId",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>User Id of the user (body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{ \n      \"error\": false,\n      \"message\": \"email successfully reset\",\n      \"status\": 200,\n      \"data\": { \n          \"error\": false,\n          \"message\": \"password changed successfully\",\n          \"status\": 200,\n          \"data\": \"password changed successfully\" \n      } \n  }",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "routes/UserRoutes.js",
+    "groupTitle": "users",
+    "name": "PostApiV1UsersResetpassword"
+  },
+  {
+    "group": "users",
+    "version": "1.0.0",
+    "type": "post",
+    "url": "/api/v1/users/signup",
+    "title": "api for new user signUp",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "firstName",
+            "description": "<p>First Name of user. (body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "lastName",
+            "description": "<p>Last Name of user. (body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email of user. (body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "mobileNumber",
+            "description": "<p>Mobile Number of user. (body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "userName",
+            "description": "<p>User Name of user. (body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "countryName",
+            "description": "<p>Country Name of user. (body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": false,
+            "field": "isAdmin",
+            "description": "<p>boolean value either true/false of user. (body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>Password of user. (body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n      \"error\": false,\n      \"message\": \"User created\",\n      \"status\": 200,\n      \"data\": {\n          \"countryCode\": 91\n          \"countryName\": \"IN\"\n          \"createdOn\": \"2019-01-15T09:28:19.000Z\"\n          \"email\": \"rohit.sharma@xyz.com\"\n          \"firstName\": \"virat\"\n          \"isAdmin\": false\n          \"lastName\": \"rohit\"\n          \"mobileNumber\": 1234567890    \n          \"userId\": \"u-JSLXVEh\"\n          \"userName\": \"sharma\"\n          \"__v\": 0\n          \"_id\": \"5c3da7b3cf9e321178b71f3d\"\n      }\n  }",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "routes/UserRoutes.js",
+    "groupTitle": "users",
+    "name": "PostApiV1UsersSignup"
+  }
+]
