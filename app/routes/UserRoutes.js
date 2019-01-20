@@ -152,7 +152,7 @@ let setRouter = (app) => {
   }
      */
 
-    app.get(`${baseUrl}/view/all`, userController.getAllUsers)
+    app.get(`${baseUrl}/view/all`,auth.isAuthorized, userController.getAllUsers)
     /**
      * @apiGroup users
      * @apiVersion 1.0.0
