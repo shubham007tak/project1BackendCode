@@ -8,7 +8,8 @@ let setServer = (server) => {
   let myIo = io.of('/')
   myIo.on('connection', (socket) => {
     console.log("on connection--emitting verify user");
-    socket.emit("verifyUser", ""); // code to verify the user and make him online
+    socket.emit("verifyUser", "");
+    
 
     socket.on('set-user', (authToken) => {
       console.log("set-user called")
@@ -37,7 +38,8 @@ let setServer = (server) => {
                   console.log(err)
                 } else {
                   console.log(`${fullName} is online`);
-                  socket.room = 'LetsMeetRoom'
+                  socket.room = 'mettingRoom'
+                  
                   socket.join(socket.room)
                   socket.to(socket.room).broadcast.emit('online-user-list', result);
                 }
@@ -50,7 +52,6 @@ let setServer = (server) => {
 
 
     socket.on('disconnect', () => {
-      
       console.log("user is disconnected");
       if (socket.userId) {
         redisLib.deleteUserFromHash('onlineUsersList', socket.userId)
@@ -64,12 +65,12 @@ let setServer = (server) => {
           }
         })
       }
-    }) // end of on disconnect
+    }) 
 
     socket.on('notify-updates', (data) => {
       console.log("socket notify-updates called")
       console.log(data);
-      socket.broadcast.emit(data.userId, data);
+      socket.broadcast.emit(data.userId, data); 
     });
   });
 }
