@@ -276,7 +276,7 @@ let forgotPassword = (req, res) => {
                     let apiResponse = response.generate(true, 'No user found', 404, null)
                     reject(apiResponse)
                 } else {
-                    emailSend.emailSend(result.email, `<a href='http://localhost:4200/resetPassword/${result.userId}'>Click here to reset password</a>`)
+                    emailSend.emailSend(result.email, `<a href='http://takgranites.com/resetPassword/${result.userId}'>Click here to reset password</a>`)
                     let apiResponse = response.generate(false, 'Email sent successfully to reset the password', 200, 'email sent')
                     resolve(apiResponse)
                 }
