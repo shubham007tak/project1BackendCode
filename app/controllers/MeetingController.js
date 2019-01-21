@@ -45,7 +45,9 @@ let createMeeting = (req, res) => {
           reject(apiResponse)
         } else {
           let newMeetingObj = result.toObject()
-          emailSend.emailSend(newMeetingObj.createdForEmail, `<b>${newMeetingObj.createdByEmail} has set a meeting for you on ${newMeetingObj.startDate} and will end on ${newMeetingObj.endDate}`)
+          let iststartDate=time.convertToLocalTime(newMeetingObj.startDate);
+	        let istendDate=time.convertToLocalTime(newMeetingObj.endDate);
+          emailSend.emailSend(newMeetingObj.createdForEmail, `<b>${newMeetingObj.createdByEmail} has set a meeting for you on ${iststartDate} and will end on ${istendDate}`)
           resolve(newMeetingObj)
         }
       })
@@ -241,8 +243,9 @@ let updateMeeting = (req, res) => {
           reject(apiResponse)
         } else {
           let meeting = result
-          emailSend.emailSend(meeting.createdForEmail, `Hey, your meeting has been rescheduled on ${meeting.startDate} and will be ending on ${meeting.endDate}`)
+          emailSend.emailSend(meeting.createdForEmail, `Hey, your meeting has been rescheduled.Kindly login to check the updated details`)
           resolve(result1)
+
         }
       })
     })
