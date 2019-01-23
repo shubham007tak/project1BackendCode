@@ -3,7 +3,7 @@ const check = require("./checkLib.js");
 const redis = require('redis');
 let client = redis.createClient({
     url:'//redis-13499.c90.us-east-1-3.ec2.cloud.redislabs.com:13499',
-    password: 'Ram@1994',
+    password: '',
     port: 13499
 });
 
